@@ -14,7 +14,7 @@ const Info = styled.div`
   left: 0;
   font-size: 25px;
   background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3; 
+  z-index: 3;
   display: flex;
   align-items: end;
   flex-direction: column;
@@ -22,7 +22,7 @@ const Info = styled.div`
   justify-content: end;
   transition: all 0.5s ease;
   cursor: pointer;
-  color: #fff;  
+  color: #fff;
 `;
 
 const Container = styled.div`
@@ -36,7 +36,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -70,17 +70,14 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  console.log(item);
   return (
     <Container>
       <Circle />
       <Image src={item.img} />
-      <Info >
-        <Icon>
-        {item.title?item.title:"Item"}
-        </Icon>
-        <Icon>
-        {item.category?item.category:"Category"}
-        </Icon>      
+      <Info>
+        <Icon>{item.title ? item.title : "Item"}</Icon>
+        <Icon>{item.category ? item.category : "Category"}</Icon>
       </Info>
     </Container>
   );
