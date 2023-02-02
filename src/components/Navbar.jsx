@@ -1,10 +1,5 @@
 import { Badge } from "@material-ui/core";
-import {
-  Search,
-  ShoppingCartOutlined,
-  NotificationsActive,
-} from "@material-ui/icons";
-// import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -80,15 +75,7 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Logo>Barter Buddy.</Logo>
-        </Left>
-
-        <SearchContainer>
-          <Input placeholder="City" />
-          <Search style={{ color: "gray", fontSize: 16 }} />
-        </SearchContainer>
-
-        <Center>
+          <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />

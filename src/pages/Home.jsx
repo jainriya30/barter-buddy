@@ -8,6 +8,7 @@ import Products from "../components/Products";
 const Home = () => {
   return (
     <div>
+      <Announcement />
       <Navbar />
       <Categories />
       <Products category={"all"} />
