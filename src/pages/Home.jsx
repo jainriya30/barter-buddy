@@ -10,12 +10,11 @@ import Slider from "../components/Slider";
 const Home = () => {
   return (
     <div>
-      
       <Navbar />
       <Categories />
-      <Products/>
-      <Newsletter/>
-      <Footer/>
+      <Products />
+      <Newsletter />
+      <Footer />
     </div>
   );
 };
