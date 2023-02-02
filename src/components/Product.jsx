@@ -32,7 +32,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -67,10 +67,11 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  console.log(item);
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
+      <Image src={item.img[0]} />
       <Info>
         <Icon>
           <ShoppingCartOutlined />
