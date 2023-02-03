@@ -1,9 +1,14 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined, NotificationsActive } from "@material-ui/icons";
+import {
+  Search,
+  ShoppingCartOutlined,
+  NotificationsActive,
+} from "@material-ui/icons";
 // import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -70,26 +75,33 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Wrapper>
         <Left>
           <Logo>Barter Buddy.</Logo>
         </Left>
-        
-          <SearchContainer>
-            <Input placeholder="City" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
 
-  <Center>
+        <SearchContainer>
+          <Input placeholder="City" />
+          <Search style={{ color: "gray", fontSize: 16 }} />
+        </SearchContainer>
+
+        <Center>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
+          <MenuItem
+            onClick={() => {
+              navigate("/addproduct");
+            }}
+          >
+            Add Item
+          </MenuItem>
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">

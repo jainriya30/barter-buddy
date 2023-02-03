@@ -5,6 +5,8 @@ import {
 } from "@material-ui/icons";
 import styled from "styled-components";
 
+const { useLocation } = require("react-router-dom");
+
 const Info = styled.div`
   opacity: 0;
   width: 100%;
@@ -35,6 +37,7 @@ const Container = styled.div`
   justify-content: center;
   background-color: #f5fbfd;
   position: relative;
+  overflow: hidden;
 
   &:hover ${Info} {
     opacity: 1;
@@ -69,12 +72,12 @@ const Icon = styled.div`
  
 `;
 
-const Product = ({ item }) => {
-  console.log(item);
+const Product = ({ item, onClick }) => {
+  const location = useLocation();
   return (
-    <Container>
+    <Container onClick={onClick}>
       <Circle />
-      <Image src={item.img} />
+      <Image src={item.img[0]} />
       <Info>
         <Icon>{item.title ? item.title : "Item"}</Icon>
         <Icon>{item.category ? item.category : "Category"}</Icon>

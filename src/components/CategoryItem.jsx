@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -43,9 +44,9 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const CategoryItem = ({ item }) => {
+const CategoryItem = ({ item, onClick }) => {
   return (
-    <Container>
+    <Container onClick={onClick}>
       {/* <Image src={item.img} /> */}
       <Info>
         <Title>{item.title}</Title>
