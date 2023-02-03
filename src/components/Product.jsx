@@ -77,6 +77,7 @@ const Product = ({ item, onClick }) => {
   return (
     <Container onClick={onClick}>
       <Circle />
+
       <Image src={item.img[0]} />
       <Info>
         <Icon>{item.title ? item.title : "Item"}</Icon>
