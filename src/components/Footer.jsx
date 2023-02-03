@@ -26,6 +26,7 @@ const Logo = styled.h1``;
 
 const Desc = styled.p`
   margin: 20px 0px;
+  justify-content: center;
 `;
 
 const SocialContainer = styled.div`
@@ -86,14 +87,15 @@ const Payment = styled.img`
 
 const Footer = () => {
   return (
-    <Container>
+    <Container style={{fontFamily:'times new roman'}}>
       <Left>
-        <Logo>LAMA.</Logo>
-        <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
-        </Desc>
+        <Logo>Barter Buddy.</Logo>
+        <p style={{textAlign: 'justify', fontFamily:'times new roman'}}>
+        In today's age of consumerism, people have accumulated a large number of products/artifacts 
+        that they may no longer need, or they might need a product that they are not willing to pay 
+        high prices for. The aim is to reduce unnecessary purchases of items that can now be obtained 
+        from people who don't need them. Consequently, it also helps people get rid of their old belongings.
+        </p>
         <SocialContainer>
           <SocialIcon color="3B5999">
             <Facebook />
@@ -127,13 +129,13 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Tobinchester 98336
+          <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Bombay 98336
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +1 234 56 78
+          <Phone style={{marginRight:"10px"}}/> +91 97234 56178
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@lama.dev
+          <MailOutline style={{marginRight:"10px"}} /> contact@barter-buddy.dev
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>

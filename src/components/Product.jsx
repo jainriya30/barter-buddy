@@ -12,13 +12,17 @@ const Info = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  font-size: 25px;
   background-color: rgba(0, 0, 0, 0.2);
-  z-index: 3;
+  z-index: 3; 
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+  flex: 1;
+  justify-content: end;
   transition: all 0.5s ease;
   cursor: pointer;
+  color: #fff;  
 `;
 
 const Container = styled.div`
@@ -51,19 +55,18 @@ const Image = styled.img`
 `;
 
 const Icon = styled.div`
-  width: 40px;
+  width: 100%;
   height: 40px;
-  border-radius: 50%;
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px;
+  margin: 0 10px;
+  color:#2f2f2f;
+  font-weight: bold;
+  background-color: #fff
+  border-radius: 5px; 
   transition: all 0.5s ease;
-  &:hover {
-    background-color: #e9f5f5;
-    transform: scale(1.1);
-  }
+ 
 `;
 
 const Product = ({ item }) => {
@@ -71,16 +74,13 @@ const Product = ({ item }) => {
     <Container>
       <Circle />
       <Image src={item.img} />
-      <Info>
+      <Info >
         <Icon>
-          <ShoppingCartOutlined />
+        {item.title?item.title:"Item"}
         </Icon>
         <Icon>
-          <SearchOutlined />
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlined />
-        </Icon>
+        {item.category?item.category:"Category"}
+        </Icon>      
       </Info>
     </Container>
   );
