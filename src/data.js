@@ -25,27 +25,27 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    title: "All",
+    title: "all",
   },
   {
-    id: 1,
-    title: "Electronics",
+    id: 8,
+    title: "electronics",
   },
   {
     id: 2,
-    title: "Furnitures",
+    title: "furniture",
   },
   {
     id: 3,
-    title: "Books",
+    title: "books",
   },
   {
-    id: 3,
-    title: "Artifacts",
+    id: 4,
+    title: "artifacts",
   },
   {
-    id: 3,
-    title: "Cloths",
+    id: 5,
+    title: "clothes",
   },
 ];
 
@@ -83,19 +83,19 @@ export const popularProducts = [
     img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
   },
   {
-    id: 8,
+    id: 12,
     img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
   },
   {
-    id: 8,
+    id: 9,
     img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
   },
   {
-    id: 8,
+    id: 10,
     img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
   },
   {
-    id: 8,
+    id: 11,
     img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
   },
 ];

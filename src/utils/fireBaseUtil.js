@@ -1,10 +1,22 @@
-import { auth, db } from "./fireBaseInit";
+import { auth, db, storage } from "./fireBaseInit";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-import { setDoc, doc, getDocs, collection } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+import {
+  setDoc,
+  doc,
+  getDocs,
+  collection,
+  addDoc,
+  getDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { async } from "@firebase/util";
+import { func } from "prop-types";
 
 export function createUser(
   name,
@@ -26,6 +38,7 @@ export function createUser(
         address,
         lat: coordinates.lat,
         long: coordinates.lng,
+        coins: 100,
       })
         .then(() => {
           console.log("success");
@@ -41,7 +54,7 @@ export function createUser(
     });
 }
 
-export function loginUser(email, password) {
+export function loginUser(email, password, setData) {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -50,6 +63,7 @@ export function loginUser(email, password) {
       // console.log("Tin din di din")``;
       // window.location.href = "http://www.w3schools.com";
       localStorage.setItem("user", userCredential.user.uid);
+      setData(userCredential.user.uid);
     })
     .catch((error) => {
       // const errorCode = error.code;
@@ -67,4 +81,53 @@ export async function getProducts() {
   });
 
   return products;
+}
+
+export async function uploadImage(images) {
+  let imageUrls = [];
+
+  await images.map((file) => {
+    const storageRef = ref(storage, `/files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        ); // update progress
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          imageUrls.push(url);
+        });
+      }
+    );
+  });
+
+  return imageUrls;
+}
+
+export async function addProduct(data) {
+  const newImages = await uploadImage(data.images);
+
+  data.images = newImages;
+  console.log(data);
+
+  const docRef = await addDoc(collection(db, "products"), data);
+
+  console.log("Document written with ID: ", docRef.id);
+
+  // Reduce coins
+
+  const userRef = doc(db, "users", data.userId);
+  const docSnap = await getDoc(userRef);
+
+  let coins = docSnap.get("coins");
+
+  console.log(coins);
+  await updateDoc(doc(db, "users", data.userId), {
+    coins: coins - 30,
+  });
 }

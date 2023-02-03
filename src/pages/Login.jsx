@@ -104,7 +104,7 @@ function Login() {
         <input
           type="Submit"
           className="submit submit-signin"
-          onClick={() => loginUser(email, password)}
+          onClick={() => loginUser(email, password, setUserData)}
         />
       </div>
       <div className="sub-cont">

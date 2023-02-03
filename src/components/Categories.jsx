@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { categories } from "../data";
 import { mobile } from "../responsive";
 import CategoryItem from "./CategoryItem";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -20,12 +21,23 @@ const MainContainer = styled.div`
   background-color: #fbeefc;
 `;
 const Categories = () => {
+  const navigate = useNavigate();
   return (
     <MainContainer>
       <Title>Categories</Title>
       <Container>
         {categories.map((item) => (
-          <CategoryItem item={item} key={item.id} />
+          <CategoryItem
+            item={item}
+            key={item.id}
+            onClick={() => {
+              navigate("/category", {
+                state: {
+                  category: item.title,
+                },
+              });
+            }}
+          />
         ))}
       </Container>
     </MainContainer>

@@ -10,6 +10,8 @@ import UserContextProvider, {
   UserContext,
 } from "./context/UserContextProvider";
 import { useContext, useEffect } from "react";
+import ProductInfo from "./pages/ProductInfo";
+import { addProduct } from "./utils/fireBaseUtil";
 const App = () => {
   const { userData } = useContext(UserContext);
 
@@ -20,7 +22,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={userData === null ? <Login /> : <Home />} />
-        <Route path="/addproduct" element={<AddProducts/>}/>
+        <Route path="/category" element={<ProductList />} />
+        <Route path="/product" element={<ProductInfo />} />
+        <Route path="/addproduct" element={<AddProducts />} />
       </Routes>
     </BrowserRouter>
   );
