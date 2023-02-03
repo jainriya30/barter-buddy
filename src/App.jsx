@@ -20,6 +20,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={userData === null ? <Login /> : <Home />} />
+        <Route path="/addproduct" element={<AddProducts/>}/>
       </Routes>
     </BrowserRouter>
   );
