@@ -12,6 +12,7 @@ import UserContextProvider, {
 import { useContext, useEffect } from "react";
 import ProductInfo from "./pages/ProductInfo";
 import { addProduct } from "./utils/fireBaseUtil";
+import ChatScreen from "./pages/ChatScreen";
 const App = () => {
   const { userData } = useContext(UserContext);
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/category" element={<ProductList />} />
         <Route path="/product" element={<ProductInfo />} />
         <Route path="/addproduct" element={<AddProducts />} />
+        <Route path="/chat" element={<ChatScreen />} />
       </Routes>
     </BrowserRouter>
   );

@@ -14,9 +14,9 @@ import {
   addDoc,
   getDoc,
   updateDoc,
+  query,
+  where,
 } from "firebase/firestore";
-import { async } from "@firebase/util";
-import { func } from "prop-types";
 
 export function createUser(
   name,
@@ -70,14 +70,17 @@ export function loginUser(email, password, setData) {
       // const errorMessage = error.message;
     });
 }
-
-export async function getProducts() {
-  const querySnapshot = await getDocs(collection(db, "products"));
-
+export async function getProducts(user, category) {
+  const productsRef = collection(db, "products");
+  console.log(category);
+  const q = query(
+    productsRef,
+    category === "all" ? null : where("category", "==", category)
+  );
+  const querySnapshot = await getDocs(q);
   let products = [];
   querySnapshot.docs.forEach((doc) => {
     products.push(doc.data());
-    console.log(doc.id, " => ", doc.data());
   });
 
   return products;

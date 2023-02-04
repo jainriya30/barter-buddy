@@ -3,12 +3,14 @@ import {
   Search,
   ShoppingCartOutlined,
   NotificationsActive,
+  Coin,
 } from "@material-ui/icons";
 // import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Container = styled.div`
   height: 60px;
@@ -50,10 +52,10 @@ const Input = styled.input`
 
 const Center = styled.div`
   flex: 0.5;
-  text-align: center; 
-  display:flex
-  justify-content:center
-  `;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+`;
 
 const Logo = styled.h1`
   font-weight: bold;
@@ -75,6 +77,7 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  useEffect(() => {}, []);
   const navigate = useNavigate();
   return (
     <Container>
@@ -102,7 +105,7 @@ const Navbar = () => {
           >
             Add Item
           </MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>Coins: 100</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
               <NotificationsActive />

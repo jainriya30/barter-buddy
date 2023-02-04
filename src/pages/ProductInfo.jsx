@@ -6,9 +6,12 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Divider } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
+import { green } from "@material-ui/core/colors";
+import { useNavigate } from "react-router-dom";
+
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -182,7 +185,7 @@ const Button3 = styled.button`
   box-shadow: 5px 5px 5px #252525;
   cursor: pointer;
   font-weight: 500;
-  color: #252525;
+  color: #fff;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -202,6 +205,10 @@ const ProductInfo = () => {
     console.log("HERE");
     console.log(location.state.item);
   });
+
+  const [fair, setFair] = useState(false);
+
+  const navigate = useNavigate();
   return (
     <Container>
       <Navbar />
@@ -244,19 +251,34 @@ const ProductInfo = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Trade with : </FilterTitle>
-              <FilterSize>
+              <FilterSize onChange={() => setFair(true)}>
                 <FilterSizeOption>Product 1</FilterSizeOption>
                 <FilterSizeOption>Product 2</FilterSizeOption>
                 <FilterSizeOption>Product 3</FilterSizeOption>
               </FilterSize>
             </Filter>
           </FilterContainer>
+          {fair && (
+            <button
+              style={{
+                padding: "10px",
+                backgroundColor: "green",
+                marginBottom: "20px",
+              }}
+            >
+              Its a Fair Deal
+            </button>
+          )}
           <AddContainer>
-            <span> </span>
-            <Button1>DEAL</Button1>
-            <Button3>
-              <a hrer="/home">NEGOTIATE</a>
-            </Button3>
+            <Button1
+              onClick={() => {
+                alert("Notification send to user");
+                navigate("/");
+              }}
+            >
+              DEAL
+            </Button1>
+            <Button3 onClick={() => navigate("/chat")}>NEGOTIATE</Button3>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

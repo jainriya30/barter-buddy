@@ -20,7 +20,6 @@ const Desc = styled.div`
   font-weight: 300;
   margin-bottom: 20px;
   ${mobile({ textAlign: "center" })}
-
 `;
 
 const InputContainer = styled.div`
@@ -49,8 +48,8 @@ const Button = styled.button`
 const Newsletter = () => {
   return (
     <Container>
-      <Title>Newsletter</Title>
-      <Desc>Get timely updates from your favorite products.</Desc>
+      <Title>Make a Complaint</Title>
+      <Desc>We will get back to you soon.</Desc>
       <InputContainer>
         <Input placeholder="Your email" />
         <Button>
