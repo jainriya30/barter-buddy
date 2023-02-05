@@ -1,9 +1,8 @@
-import { title } from "process";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import { UserContext } from "../context/UserContextProvider";
-import { addProduct, uploadImage } from "../utils/fireBaseUtil";
+import { addProduct } from "../utils/fireBaseUtil";
 
 const Container = styled.div`
   /* display: grid; */

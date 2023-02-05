@@ -1,6 +1,4 @@
-import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Slider from "../components/Slider";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -9,7 +7,6 @@ import { mobile } from "../responsive";
 import React, { useEffect, useState } from "react";
 import { Divider } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
-import { green } from "@material-ui/core/colors";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div``;
@@ -22,17 +19,6 @@ const Wrapper = styled.div`
   background: #f0e1ee;
 
   ${mobile({ padding: "10px", flexDirection: "column" })}
-`;
-
-const ImgContainer = styled.div`
-  flex: 1;
-`;
-
-const Image = styled.img`
-  width: 60%;
-  height: 40vh;
-  object-fit: cover;
-  ${mobile({ height: "40vh" })}
 `;
 
 const InfoContainer = styled.div`
@@ -82,15 +68,6 @@ const FilterTitle = styled.span`
   font-weight: 200;
 `;
 
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0px 5px;
-  cursor: pointer;
-`;
-
 const FilterSize = styled.select`
   margin-left: 10px;
   padding: 5px;
@@ -104,37 +81,6 @@ const AddContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   ${mobile({ width: "100%" })}
-`;
-
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 5px 5px;
-`;
-
-const Button = styled.button`
-  padding: 15px;
-  border: 2px solid teal;
-  background-color: black;
-  cursor: pointer;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    background-color: #f8f4f4;
-  }
 `;
 
 const Button2 = styled.button`

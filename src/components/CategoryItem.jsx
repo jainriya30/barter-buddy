@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { mobile } from "../responsive";
-import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -8,13 +6,6 @@ const Container = styled.div`
   height: 10vh;
   position: relative;
   background: #291f28;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  ${mobile({ height: "20vh" })}
 `;
 
 const Info = styled.div`
@@ -33,15 +24,6 @@ const Title = styled.h1`
   color: white;
   /* margin-bottom: 20px; */
   font-size: 18px;
-`;
-
-const Button = styled.button`
-  border: none;
-  padding: 10px;
-  background-color: white;
-  color: gray;
-  cursor: pointer;
-  font-weight: 600;
 `;
 
 const CategoryItem = ({ item, onClick }) => {

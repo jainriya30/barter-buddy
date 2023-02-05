@@ -1,11 +1,5 @@
 import { Badge } from "@material-ui/core";
-import {
-  Search,
-  ShoppingCartOutlined,
-  NotificationsActive,
-  Coin,
-} from "@material-ui/icons";
-// import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import { Search, NotificationsActive } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -29,12 +23,6 @@ const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-`;
-
-const Language = styled.span`
-  font-size: 18px;
-  cursor: pointer;
-  ${mobile({ display: "none" })}
 `;
 
 const SearchContainer = styled.div`

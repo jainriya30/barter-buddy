@@ -16,8 +16,6 @@ function Login() {
 
   const { setUserData } = useContext(UserContext);
 
-  const handleCreate = () => createUser(email, password);
-
   const [signClass, setSign] = useState(false);
 
   const handleSign = () => setSign(!signClass);
@@ -114,7 +112,6 @@ function Login() {
           </div>
           <div className="img__text m--in">
             <h3>If you already has an account, just sign in.</h3>
-            <h3></h3>
           </div>
           <div className="img__btn" onClick={handleSign}>
             <button className="m--up" onClick={handleSign}>

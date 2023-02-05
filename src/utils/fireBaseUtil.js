@@ -89,17 +89,13 @@ export async function getProducts(user, category) {
 export async function uploadImage(images) {
   let imageUrls = [];
 
-  await images.map((file) => {
+  await images.forEach((file) => {
     const storageRef = ref(storage, `/files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
       "state_changed",
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        ); // update progress
-      },
+      (snapshot) => {},
       (err) => console.log(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
