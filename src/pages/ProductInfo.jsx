@@ -1,14 +1,14 @@
-import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Slider from "../components/Slider";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Divider } from "@material-ui/core";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -19,17 +19,6 @@ const Wrapper = styled.div`
   background: #f0e1ee;
 
   ${mobile({ padding: "10px", flexDirection: "column" })}
-`;
-
-const ImgContainer = styled.div`
-  flex: 1;
-`;
-
-const Image = styled.img`
-  width: 60%;
-  height: 40vh;
-  object-fit: cover;
-  ${mobile({ height: "40vh" })}
 `;
 
 const InfoContainer = styled.div`
@@ -79,15 +68,6 @@ const FilterTitle = styled.span`
   font-weight: 200;
 `;
 
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0px 5px;
-  cursor: pointer;
-`;
-
 const FilterSize = styled.select`
   margin-left: 10px;
   padding: 5px;
@@ -101,37 +81,6 @@ const AddContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   ${mobile({ width: "100%" })}
-`;
-
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 5px 5px;
-`;
-
-const Button = styled.button`
-  padding: 15px;
-  border: 2px solid teal;
-  background-color: black;
-  cursor: pointer;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    background-color: #f8f4f4;
-  }
 `;
 
 const Button2 = styled.button`
@@ -182,7 +131,7 @@ const Button3 = styled.button`
   box-shadow: 5px 5px 5px #252525;
   cursor: pointer;
   font-weight: 500;
-  color: #252525;
+  color: #fff;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -202,6 +151,10 @@ const ProductInfo = () => {
     console.log("HERE");
     console.log(location.state.item);
   });
+
+  const [fair, setFair] = useState(false);
+
+  const navigate = useNavigate();
   return (
     <Container>
       <Navbar />
@@ -244,19 +197,34 @@ const ProductInfo = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Trade with : </FilterTitle>
-              <FilterSize>
+              <FilterSize onChange={() => setFair(true)}>
                 <FilterSizeOption>Product 1</FilterSizeOption>
                 <FilterSizeOption>Product 2</FilterSizeOption>
                 <FilterSizeOption>Product 3</FilterSizeOption>
               </FilterSize>
             </Filter>
           </FilterContainer>
+          {fair && (
+            <button
+              style={{
+                padding: "10px",
+                backgroundColor: "green",
+                marginBottom: "20px",
+              }}
+            >
+              Its a Fair Deal
+            </button>
+          )}
           <AddContainer>
-            <span> </span>
-            <Button1>DEAL</Button1>
-            <Button3>
-              <a hrer="/home">NEGOTIATE</a>
-            </Button3>
+            <Button1
+              onClick={() => {
+                alert("Notification send to user");
+                navigate("/");
+              }}
+            >
+              DEAL
+            </Button1>
+            <Button3 onClick={() => navigate("/chat")}>NEGOTIATE</Button3>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

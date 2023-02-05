@@ -73,7 +73,6 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item, onClick }) => {
-  const location = useLocation();
   return (
     <Container onClick={onClick}>
       <Circle />

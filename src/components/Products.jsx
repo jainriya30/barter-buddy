@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import { popularProducts } from "../data";
 import Product from "./Product";
-import { getDoc, doc } from "firebase/firestore";
 import { useState } from "react";
-import { db } from "../utils/fireBaseInit";
 import { getProducts } from "../utils/fireBaseUtil";
 import { UserContext } from "../context/UserContextProvider";
 import { useContext } from "react";
@@ -27,7 +24,7 @@ const Products = ({ category }) => {
     getProducts(userData, category).then((products) => {
       setProducts(products);
     });
-  }, []);
+  }, [userData, category]);
 
   return (
     <Container>

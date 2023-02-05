@@ -1,9 +1,8 @@
-import { title } from "process";
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import { UserContext } from "../context/UserContextProvider";
-import { addProduct, uploadImage } from "../utils/fireBaseUtil";
+import { addProduct } from "../utils/fireBaseUtil";
 
 const Container = styled.div`
   /* display: grid; */
@@ -132,6 +131,7 @@ const AddProducts = () => {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           />
+          <Label htmlFor="category">Interest:</Label>
           <Input
             id="interest"
             type="text"
@@ -175,7 +175,11 @@ const AddProducts = () => {
 
         <ImageContainer>
           {images.map((image, index) => (
-            <Image key={index} src={image} alt={`Image ${index + 1}`} />
+            <Image
+              key={index}
+              src={URL.createObjectURL(image)}
+              alt={`Image ${index + 1}`}
+            />
           ))}
         </ImageContainer>
       </Adprodcontainer>

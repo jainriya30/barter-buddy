@@ -1,9 +1,10 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Search, NotificationsActive } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Container = styled.div`
   height: 60px;
@@ -24,12 +25,6 @@ const Left = styled.div`
   align-items: center;
 `;
 
-const Language = styled.span`
-  font-size: 18px;
-  cursor: pointer;
-  ${mobile({ display: "none" })}
-`;
-
 const SearchContainer = styled.div`
   border: 0.5px solid lightgray;
   display: flex;
@@ -45,10 +40,10 @@ const Input = styled.input`
 
 const Center = styled.div`
   flex: 0.5;
-  text-align: center; 
-  display:flex
-  justify-content:center
-  `;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+`;
 
 const Logo = styled.h1`
   font-weight: bold;
@@ -70,12 +65,21 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  useEffect(() => {}, []);
   const navigate = useNavigate();
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
+          <Logo>Barter Buddy.</Logo>
+        </Left>
+
+        <SearchContainer>
+          <Input placeholder="City" />
+          <Search style={{ color: "gray", fontSize: 16 }} />
+        </SearchContainer>
+
+        <Center>
           <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
@@ -89,7 +93,7 @@ const Navbar = () => {
           >
             Add Item
           </MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <MenuItem>Coins: 100</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
               <NotificationsActive />

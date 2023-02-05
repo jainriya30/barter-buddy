@@ -1,7 +1,6 @@
 import {
   Facebook,
   Instagram,
-  MailOutline,
   Phone,
   Pinterest,
   Room,
@@ -72,7 +71,6 @@ const Right = styled.div`
   flex: 1;
   padding: 20px;
   ${mobile({ backgroundColor: "#fff8f8" })}
-
 `;
 
 const ContactItem = styled.div`
@@ -82,7 +80,7 @@ const ContactItem = styled.div`
 `;
 
 const Payment = styled.img`
-    width: 50%;
+  width: 50%;
 `;
 
 const Footer = () => {
@@ -90,12 +88,11 @@ const Footer = () => {
     <Container style={{fontFamily:'times new roman'}}>
       <Left>
         <Logo>Barter Buddy.</Logo>
-        <p style={{textAlign: 'justify', fontFamily:'times new roman'}}>
-        In today's age of consumerism, people have accumulated a large number of products/artifacts 
-        that they may no longer need, or they might need a product that they are not willing to pay 
-        high prices for. The aim is to reduce unnecessary purchases of items that can now be obtained 
-        from people who don't need them. Consequently, it also helps people get rid of their old belongings.
-        </p>
+        <Desc>
+          There are many variations of passages of Lorem Ipsum available, but
+          the majority have suffered alteration in some form, by injected
+          humour, or randomised words which don’t look even slightly believable.
+        </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
             <Facebook />
@@ -129,14 +126,12 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room style={{marginRight:"10px"}}/> 622 Dixie Path , South Bombay 98336
+          <Room style={{ marginRight: "10px" }} /> Bandra, Mumbai
         </ContactItem>
         <ContactItem>
-          <Phone style={{marginRight:"10px"}}/> +91 97234 56178
+          <Phone style={{ marginRight: "10px" }} /> +91 9387686868
         </ContactItem>
-        <ContactItem>
-          <MailOutline style={{marginRight:"10px"}} /> contact@barter-buddy.dev
-        </ContactItem>
+
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
     </Container>
